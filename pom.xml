@@ -131,14 +131,15 @@
                     <locales>en,fr</locales>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.0.RELEASE</version>
                 <configuration>
                     <fork>true</fork>
                     <addResources>true</addResources>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
         <!--<resources>
             <resource>
