@@ -1,0 +1,37 @@
+server:
+  port: 3344 # 端口
+
+spring:
+  application:
+    name: cloud-config-center # 服务名
+  cloud:
+    config:
+      server:
+        git:
+          # uri: git@github.com:dengjia-lib/springcloud-config.git # github仓库名路径
+          # uri: https://github.com/dengjia-lib/springcloud-config.git # github仓库名路径
+          # uri: git@gitee.com:DJOSIMON/springcloud-config.git # gitee仓库名路径
+          uri: https://gitee.com/DJOSIMON/springcloud-config.git # gitee仓库名路径
+          force-pull: true # 设置强行pull拉取
+          # username: 2663239386@qq.com
+          # password: 1569731127.mkKj
+          search-paths:
+            - springcloud-config # 搜索目录
+      label: master # 读取分支
+  rabbitmq: # rabbitmq 相关配置
+    host: 192.168.8.130
+    port: 5672 # 15672是web管理界面的端口，5672是MQ访问端口
+    username: guest
+    password: guest
+
+eureka: # 将服务注册到eureka
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka # 单机版
+
+# 暴露 BUS 刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
